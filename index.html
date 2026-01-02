@@ -1,1 +1,79 @@
+<html>
+  <head>
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div class="main" id="main"></div>
+    <script>
+      let theme = {
+        btnBackground: "coral"
+      }
+   function optionsButtonCSS(){
+     return `
+      <style>
+     .home_container{
+	width: 100%;
+	display: flex; 
+	justify-content: center;  
+          }
+        </style>
+`
+ }
 
+      
+    function homePage(){
+     var html = `
+	${optionsButtonCSS()}
+        <div class="home_container">
+           ${optionsButton()}
+	   ${optionsButton("Add New Task")}
+	  ${optionsButton("View All Tasks")}
+          ${optionsButton("View Notes")}
+        
+        </div>
+      `
+      document.getElementById('main').innerHTML =html; 
+    }
+
+   
+   
+
+
+
+    function optionsButton(name = "Add New Meeting Notes"){
+     var width = "20%"; 
+      return `
+      <style>
+      .button_option{
+	width: ${width};
+        padding: 25px; 
+        background-color: ${theme.btnBackground}; 
+	color: black;
+	display: flex; 
+       justify-content: center; 
+	margin: 20px; 
+	border-radius:7px;
+	font-size: 25px; 
+	box-shadow: 10px 10px; 
+      }
+
+ .button_option:hover{
+	background-color: yellow; 
+	cursor: pointer; 
+
+
+   }
+      </style>
+       <div class="button_option">
+          ${name}
+       
+       </div>     
+      `
+    }
+      homePage();
+    </script>
+  </body>
+  
+</html>
