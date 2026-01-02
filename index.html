@@ -17,7 +17,48 @@
 	width: 100%;
 	display: flex; 
 	justify-content: center;  
-          }
+    }
+	.table_task{
+		width: 100%;
+		 display: flex; 
+		 margin: 50px; 
+		justify-content: center;
+		 
+	}
+	table {
+  border-collapse: collapse;
+}
+  
+	th{
+	   width: 250px; 
+	   font-size: 20px; 
+	   border-style: outset;
+	   border-color: black; 
+          background-color: ${theme.btnBackground};
+	 
+	        
+	}
+td{
+	   width: 250px; 
+	   font-size: 20px; 
+	    border-style: outset;
+	            
+	}
+tr{
+	display: in-line; 
+	  text-align: center;   
+          vertical-align: middle; 
+	 border-style: solid;
+	
+
+	}
+tr:hover{
+  background-color: #c0c0c0; 
+  cursor: pointer;
+    
+
+}
+		  
         </style>
 `
  }
@@ -78,23 +119,49 @@
    function activeTasks(){
 	   let head = ["Index", "Date", "Priority", "Description", "Notes", "Due By", "Completed"]
    let tasks = [
-	   [1,"12/20/2025", "1", "Clean Bathrooms", "Do this", "12/25/2025", false],
+[1,"12/20/2025", "1", "Clean Bathrooms", "Do this", "12/25/2025", false],
 	    [2,"12/20/2025", "2", "Clean living", "Do this now", "12/26/2025", false],
 	    [3,"12/20/2025", "3", "Clean car", "Do this later", "12/27/2025", false]
+	 
    ]
 	   let htmlHeaders = ""; 
+	   let htmlTD = ""; 
+      
 	   
 	   for(var i = 0; i < head.length; i++){
 		   htmlHeaders += `
 		     <th>${head[i]}</th>
 		   `
 	   }
+ 
+           htmlHeaders += `<th></th> `
+	   for(var i = 0; i < tasks.length; i++){
+		   htmlTD += `
+		     <tr>
+			<td>${tasks[i][0]}</td>
+			<td>${tasks[i][1]}</td>
+			<td>${tasks[i][2]}</td>
+			<td>${tasks[i][3]}</td>
+			<td>${tasks[i][4]}</td>
+			<td>${tasks[i][5]}</td>
+			<td>${tasks[i][6]}</td>
+			<td><button>View Task</button>
+			</td>
+			</tr>
+		   
+		   `
+	   }
+ 
+	   
        let html = `
+	   <div  class="table_task">
 	   <table>
 	      <tr>
 		  ${htmlHeaders}
 		  </tr>
+		  ${htmlTD}
 	     </table>
+		 </div>
 	   `
 	   return html; 
 	   
@@ -109,3 +176,4 @@
   </body>
   
 </html>
+
